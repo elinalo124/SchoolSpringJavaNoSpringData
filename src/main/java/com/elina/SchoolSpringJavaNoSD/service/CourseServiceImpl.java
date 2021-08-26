@@ -24,13 +24,13 @@ public class CourseServiceImpl implements CourseService{
 
     @Override
     @Transactional
-    public Course getCourse(int theId) {
+    public Course getCourse(Long theId) {
         return courseRepository.getCourse(theId);
     }
 
     @Override
     @Transactional
-    public void deleteCourse(int theId) {
+    public void deleteCourse(Long theId) {
         courseRepository.deleteCourse(theId);
     }
 }

@@ -7,17 +7,48 @@ import com.elina.SchoolSpringJavaNoSD.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 public class CourseController {
     @Autowired
     private CourseService courseService;
 
+
+    //CREATE
+    @PostMapping("/courses")
+    public void saveCourse(@RequestBody Course newCourse){
+        System.out.println("Controller is saving:\n"+newCourse);
+        courseService.saveCourse(newCourse);
+    }
+
+    //RETRIEVE
+    @GetMapping("/courses/{id}")
+    public Course getCourse(@PathVariable("id") Long id){
+        Course course = courseService.getCourse(id);
+        System.out.println("get Course\n"+ course);
+        return course;
+    }
+
+    @GetMapping("/courses")
+    public List<Course> getAllCourses(){
+        List<Course> courses = courseService.getCourses();
+        System.out.println("All courses\n"+courses);
+        return courses;
+    }
+    //UPDATE
+    @PutMapping("/courses")
+    public void updateCourse(@RequestBody Course newCourse) {
+        courseService.saveCourse(newCourse);
+    }
+
+    //DELETE
+    @DeleteMapping("/courses/{id}")
+    void deleteEmployee(@PathVariable Long id) {
+        courseService.deleteCourse(id);
+    }
+
+    /*
     @GetMapping("/list")
     public String listCourses(Model theModel) {
         List < Course > theCourses = courseService.getCourses();
@@ -51,4 +82,6 @@ public class CourseController {
         courseService.deleteCourse(theId);
         return "redirect:/course/list";
     }
+
+     */
 }

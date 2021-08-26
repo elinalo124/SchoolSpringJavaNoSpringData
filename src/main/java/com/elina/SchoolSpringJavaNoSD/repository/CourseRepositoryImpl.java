@@ -28,22 +28,22 @@ public class CourseRepositoryImpl implements CourseRepository{
     }
 
     @Override
-    public void deleteCourse(int id) {
+    public void deleteCourse(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        Course book = session.byId(Course.class).load(id);
-        session.delete(book);
+        Course course = session.byId(Course.class).load(id);
+        session.delete(course);
     }
 
     @Override
-    public void saveCourse(Course theCourse) {
+    public void saveCourse(Course course) {
         Session currentSession = sessionFactory.getCurrentSession();
-        currentSession.saveOrUpdate(theCourse);
+        currentSession.saveOrUpdate(course);
     }
 
     @Override
-    public Course getCourse(int theId) {
+    public Course getCourse(Long theId) {
         Session currentSession = sessionFactory.getCurrentSession();
-        Course theCourse = currentSession.get(Course.class, theId);
-        return theCourse;
+        Course course = currentSession.get(Course.class, theId);
+        return course;
     }
 }

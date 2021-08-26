@@ -12,10 +12,9 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {
-        "com.elina.SchoolSpringJavaNoSD"
-})
+@ComponentScan(basePackages = {"com.elina.SchoolSpringJavaNoSD"})
 public class WebMvcConfig implements WebMvcConfigurer{
+    /*
     @Bean
     public InternalResourceViewResolver resolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
@@ -31,4 +30,6 @@ public class WebMvcConfig implements WebMvcConfigurer{
                 .addResourceHandler("/resources/**")
                 .addResourceLocations("/resources/");
     }
+
+     */
 }

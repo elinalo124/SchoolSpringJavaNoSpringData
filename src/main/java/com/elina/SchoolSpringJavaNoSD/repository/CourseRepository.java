@@ -9,7 +9,7 @@ public interface CourseRepository {
 
     public void saveCourse(Course theCourse);
 
-    public Course getCourse(int theId);
+    public Course getCourse(Long theId);
 
-    public void deleteCourse(int theId);
+    public void deleteCourse(Long theId);
 }
